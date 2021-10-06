@@ -11,9 +11,8 @@ Note: You can learn about Version Control Systems (VCS) here.
 Setting up git
 After installing git, run git and execute these commands:
 
-**git config --global user.name "[name]"**
-Now
-**git config --global user.email "[email address]"**
+git config --global user.name "[name]"
+git config --global user.email "[email address]"
 That should complete the software setup.
 
 Forking and Cloning
