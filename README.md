@@ -11,8 +11,8 @@ Note: You can learn about Version Control Systems (VCS) here.
 Setting up git
 After installing git, run git and execute these commands:
 
-**git config --global user.name "[name]"
-git config --global user.email "[email address]"**
+**git config --global user.name "[name]"**
+**git config --global user.email "[email address]"**
 That should complete the software setup.
 
 Forking and Cloning
@@ -33,8 +33,10 @@ Editing files
 Adding and commiting changes
 To create a commit means to save your work. But before you commit, you have to add your work to the commit. To do so, execute this command from the project root:
 
-__git add * __
-This adds all files to the upcoming commit. Now, to create the commit run this command:
+**git add * 
+This adds all files to the upcoming commit.**
+
+Now, to create the commit run this command:
 
 **git commit -m "[commit message here]"**
 Write any message in place of the commit message. If the command runs successfully, you should have committed your changes.
