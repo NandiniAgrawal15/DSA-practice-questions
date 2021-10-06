@@ -1,15 +1,3 @@
-# Table of Contents
-
-- [Getting Started](#getting-started)
-    - [Setting up softwares](#setting-up-softwares)
-    - [Setting up git](#setting-up-git)
-    - [Forking and Cloning](#forking-and-cloning)
-    - [Making branches](#making-branches)
-    - [Editing files](#editing-files)
-    - [Adding and commiting changes](#adding-and-commiting-changes)
-    - [Pushing changes and submitting a Pull Request](#pushing-changes-and-submitting-a-pull-request)
-- [Resources](#resources)
-
 
 # Getting Started
 
