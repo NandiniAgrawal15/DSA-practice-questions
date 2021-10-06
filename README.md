@@ -12,6 +12,7 @@ Setting up git
 After installing git, run git and execute these commands:
 
 **git config --global user.name "[name]"**
+Now
 **git config --global user.email "[email address]"**
 That should complete the software setup.
 
