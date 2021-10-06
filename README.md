@@ -71,7 +71,7 @@ git push origin [branch name]
 
 Where branch name is the name of your newly created branch. This should upload your changes to *your* GitHub account. Now, you can propose these changes to the actual project. To do so, click on the **Pull Request** button on GitHub. Most of the fields should be automatically filled out for you. Click Create Pull Request. If everything went correctly, you should have created a pull request with your changes. Now it is upto the repo owner to **merge** these changes.
 
-Congratulations! You made your first Open Source Contribution! Now contribute to some other repos on NWoC. Have a great time!
+Congratulations! You made your first Open Source Contribution! Now contribute to some other repos. Have a great time!
 
 # Resources
 
