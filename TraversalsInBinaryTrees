@@ -1,0 +1,150 @@
+//traversals of Binary Trees 
+//inorder     == left subtree, root ,right subtree
+//preorder    == root,left subtree,right subtree.
+// postorder  == left subtree,right subtree,root.
+
+
+#include<iostream>
+using namespace std;
+class Node 
+{
+    public:
+    int data;
+     Node *left;
+    Node *right;
+    Node(int val)
+    {
+        data=val;
+        left=NULL;
+        right= NULL;
+    }
+};
+
+
+//inorder 
+void inorder(Node *root){
+    if(root==NULL){
+        return; //base condition
+    }
+    Node *curr=root;
+    stack<Node*>st; // creation of stack to push the elements of the tree
+    vector<int>vec;
+    while(curr!=NULL || st.empty()==false){
+        while (curr!=NULL)
+        {
+            st.push(curr);
+            curr=curr->left; // traversing till the left most node of the tree
+        }
+        curr=st.top();
+        st.pop();
+        vec.push_back(curr->data);
+        curr=curr->right;
+    }
+    int i;
+    for(i=0;i<vec.size();i++){
+        cout<<vec[i]<<" ";  // printing data /key of each node 
+    }
+}
+
+// preorder 
+
+void preorder(Node *root){
+    if(root==NULL){
+        return;
+    }
+    stack<Node*>st;
+    st.push(root);
+    vector<int>ans;
+    while(!st.empty()){
+        Node *curr=st.top();
+        st.pop();
+        ans.push_back(curr->data);
+        if(curr->right){
+            st.push(curr->right);
+        }
+        if(curr->left){
+            st.push(curr->left);
+        }
+    }
+    int i=0;
+    for(i=0;i<ans.size();i++){
+        cout<<ans[i]<<" ";
+    }
+}
+
+
+//postorder 
+
+void postOrder(Node *root){
+    if(root==NULL){
+        return;
+    }
+    stack<Node*>st;
+    st.push(root);
+    vector<int>ans;
+    while(!st.empty()){
+        Node *curr=st.top();
+        st.pop();
+        ans.push_back(curr->data);
+        if(curr->right){
+            st.push(curr->right);
+        }
+        if(curr->left){
+            st.push(curr->left);
+        }
+    }
+    int i;
+    for(i=0;i<ans.size();i++){
+        cout<<ans[i]<<" ";
+    }
+}
+//level order traversal 
+//printing the node ->data at level wise .
+void printLevelOrder(Node *tree)
+{
+    if(tree==NULL)
+    {
+        return;
+    }
+    queue<Node *>q;
+    q.push(tree);
+    q.push(NULL);
+    while(!q.empty())
+    {
+        Node *n=q.front();
+        q.pop();
+        if(n!=NULL)
+        {
+            cout<<n->data<<" ";
+            if(n->left)
+               q.push(n->left);
+            if(n->right)
+               q.push(n->right);
+        }
+        else if(!q.empty())
+        {
+            q.push(NULL);
+        }
+    }
+}
+
+//main function 
+
+int main(){
+    Node*tree=new Node(1);
+    tree->left=new Node (2);
+    tree->right=new Node (3);
+    tree->left->left=new Node (4);
+    tree->left->right=new Node(5);
+    tree->right->left=new Node(6);
+    tree->right->left =new Node (7);
+    inorder(tree);
+    cout<<endl;
+    postOrder(tree);
+    cout<<endl;
+    preorder(tree);
+    cout<<endl;
+    printLevelOrder(tree);
+    cout<<endl;
+    return 0;
+}
