@@ -98,6 +98,35 @@ void postOrder(Node *root){
         cout<<ans[i]<<" ";
     }
 }
+//level order traversal 
+//printing the node ->data at level wise .
+void printLevelOrder(Node *tree)
+{
+    if(tree==NULL)
+    {
+        return;
+    }
+    queue<Node *>q;
+    q.push(tree);
+    q.push(NULL);
+    while(!q.empty())
+    {
+        Node *n=q.front();
+        q.pop();
+        if(n!=NULL)
+        {
+            cout<<n->data<<" ";
+            if(n->left)
+               q.push(n->left);
+            if(n->right)
+               q.push(n->right);
+        }
+        else if(!q.empty())
+        {
+            q.push(NULL);
+        }
+    }
+}
 
 //main function 
 
@@ -115,7 +144,7 @@ int main(){
     cout<<endl;
     preorder(tree);
     cout<<endl;
+    printLevelOrder(tree);
+    cout<<endl;
     return 0;
 }
-
-    }
