@@ -1,0 +1,50 @@
+// LCA - LOWEST COMMON ANCESTOR 
+#include<iostream>
+#include<vector>
+using namespace std;
+class Node {
+    public:
+    int data;
+    Node *left,*right;
+    Node (int val){
+        data=val;
+        left=NULL;
+        right=NULL;
+    }
+};
+Node *lcaOptimise(Node *root,int n1,int n2){
+    if(root==NULL){
+        return NULL;
+    }
+    if(root->data==n1 || root->data==n2){
+        return root;
+    }
+    Node *leftLca= lcaOptimise(root->left,n1,n2);
+    Node *rightLca=lcaOptimise(root->right,n1,n2);
+    if(leftLca and rightLca){
+        return root;
+    }
+    if(leftLca){
+        return leftLca;
+    }
+    return rightLca;
+}
+int main(){
+    Node *tree=new Node(1);
+    tree->left=new Node(2);
+    tree->right=new Node(3);
+    tree->left->left=new Node(4);
+    tree->left->right=new Node(5);
+    tree->right->left=new Node(6);
+    tree->right->right=new Node(7);
+    int n1=6;
+    int n2=7;
+    Node *lca2=lcaOptimise(tree,n1,n2);
+    if(lca2==NULL){
+        cout<<"Lca doesn't exist"<<endl;
+    }
+    else {
+        cout<<"Lca : "<<lca2->data<<endl;
+    }
+    return 0;
+}
