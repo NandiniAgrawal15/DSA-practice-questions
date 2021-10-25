@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+struct Node {
+    int data;
+    Node *left,*right;
+    Node(int val){
+        data=val;
+        left=NULL;
+        right=NULL;
+    }
+};
+Node *insertBst(Node *root,int val){
+    if(root==NULL){
+        Node *n= new Node(val);
+        root=n;
+        return root;
+    }
+    if(val<root->data){
+        root->left= insertBst(root->left,val);
+    }
+    else {
+        root->right= insertBst(root->right,val);
+    }
+    return root;
+}
+//search 
+bool searchBst(Node *root,int val){
+    if(root==NULL){
+        return 0;
+    }
+    if(root->data==val){
+        return true;
+    }
+    if(root->data<val){
+        return searchBst(root->right,val);
+    }
+    return searchBst(root->left,val);
+}
+void inorder(Node *root){
+    if(root==NULL){
+        return;
+    }
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+}
+int main(){
+    int arr[]={5,1,3,4,2,7};
+    Node *root=NULL;
+    root=insertBst(root,5);
+    for(int i=1;i<6;i++){
+        insertBst(root,arr[i]);
+    }
+    inorder(root);
+    cout<<endl;
+    cout<<searchBst(root,8);
+    cout<<endl;
+    }
